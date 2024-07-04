@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog</title>
+    <style>
+        dialog {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        #closeDialog {
+            background-color: #f44336;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <button id="openDialog">Open Dialog</button>
+    <dialog id="myDialog">
+        <p>This is a modern dialog</p>
+        <button id="closeDialog">close</button>
+    </dialog>
+
+    <script>
+        const dialog = document.getElementById('myDialog');
+        const openDialogButton = document.getElementById('openDialog');
+        const closeDialogButton = document.getElementById('closeDialog');
+
+        openDialogButton.addEventListener('click', () => {
+            dialog.showModal();
+        });
+
+        closeDialogButton.addEventListener('click', () => {
+            dialog.close();
+        });
+
+        // Automatisches Öffnen des Dialogs nach 3 Sekunden
+        setTimeout(() => {
+            dialog.showModal();
+        }, 3000);
+
+        // Automatisches Schließen des Dialogs nach 10 Sekunden
+        setTimeout(() => {
+            dialog.close();
+        }, 10000);
+    </script>
+</body>
+</html>
